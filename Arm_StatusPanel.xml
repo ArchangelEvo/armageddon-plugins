@@ -42,7 +42,7 @@
   <trigger
    enabled="y"
    keep_evaluating="y"
-   match="^PROMPT_([^_]+)_([^_]+)_LINE3$"
+   match="^PROMPT_([^_]+)_LINE3$"
    name="StatusPanelTriggerGag3"
    omit_from_log="y"
    omit_from_output="y"
@@ -55,7 +55,7 @@
    enabled="y"
    lines_to_match="3"
    keep_evaluating="y"
-   match="^PROMPT_([^_]+)_([^_]+)_([^_]+)_riding: ([^_]+)_([^_]+)_LINEONE\nPROMPT_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_LINETWO\nPROMPT_([^_]+)_([^_]+)_LINE3$"
+   match="^PROMPT_([^_]+)_([^_]+)_([^_]+)_riding: ([^_]+)_([^_]+)_LINEONE\nPROMPT_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_LINETWO\nPROMPT_([^_]+)_LINE3$"
    multi_line="y"
    name="StatusPanelTrigger"
    regexp="y"
@@ -109,7 +109,7 @@ Note: If you have problems report them here: https://github.com/ArchangelEvo/arm
 function InstallStatusPanel()
     -- Set the prompt in the game. 
     -- Notice the \\n to create linebreaks in the prompt. The extra \ is needed otherwise the SendImmediate command will hit the enter key, so to speak, when it reads \n.
-    SendImmediate ("prompt PROMPT_%a_%o_%O_%k_%e_LINEONE\\nPROMPT_%E_%A_%w_%h_%H_%t_%T_%v_%V_%m_%M_LINETWO\\nPROMPT_%s_manaoff_LINE3\\n")
+    SendImmediate ("prompt PROMPT_%a_%o_%O_%k_%e_LINEONE\\nPROMPT_%E_%A_%w_%h_%H_%t_%T_%v_%V_%m_%M_LINETWO\\nPROMPT_%s_LINE3\\n")
     Tell ("Enjoy this status panel for Armageddon.\n")
     Tell ("If you have any issues, report them at\n")
     Tell ("https://github.com/ArchangelEvo/armageddon-plugins/issues\n")
@@ -170,11 +170,9 @@ local CurrentManaMax
 CurrentManaMax = tonumber(wildcards [16])--used by default.
 local CurrentPosition
 CurrentPosition = wildcards [17]--used by default.
-local DisplayMana
-DisplayMana = wildcards [18]-- string used to toggle mana display
 
 --Send the status info to the UDP listener (indirect - does nothing if listener is not activated/enabled)
-UdpSend ("127.0.0.1", 11000, CurrentHealth .. "/" .. CurrentHealthMax .. " *hp " .. CurrentStamina .. "/" .. CurrentStaminaMax .. " *mv " .. CurrentStun .. "/" .. CurrentStunMax .. " *st " .. CurrentMana .. "/" .. CurrentManaMax .. " *mn " .. CurrentArmed .. " *arm " .. CurrentSpeed .. " *spd " .. CurrentPosition .. " *pos " .. CurrentTime .. " *time")
+UdpSend ("127.0.0.1", 11000, CurrentHealth .. "/" .. CurrentHealthMax .. " *hp " .. CurrentStamina .. "/" .. CurrentStaminaMax .. " *mv " .. CurrentStun .. "/" .. CurrentStunMax .. " *st " .. CurrentMana .. "/" .. CurrentManaMax .. " *mn " .. CurrentArmed .. " *arm " .. CurrentSpeed .. " *spd " .. CurrentPosition .. " *pos " .. CurrentTime .. " *time " .. CurrentRiding .. " *rid " .. CurrentEncumbrance .. " *enc " .. CurrentLanguage .. " *lang " .. CurrentMood .. " *mood " .. CurrentAccent .. " *acc")
 
 
 
