@@ -90,7 +90,8 @@ Step 1: Save this file to your hard drive. I recommend the MushClient/worlds/plu
 
 Steps 2-4: Hit shift-ctrl-p to open the plugins menu. Click the "Add" button. Navigate to where you saved this file and select it. Click Close.
 
-Step 5: Hop into your Armageddon character and (optional) send this command to arm: prompt (make a copy of the result somewhere, for posterity)
+Step 5: Hop into your Armageddon character and (optional) send this command to arm: prompt
+        (You can make a copy of the result somewhere, for posterity, if you like, or add it followed by \\n inside the close parenthesis on the end of the SendImmediate line below to retain your prompt in text)
 
 Step 6: Send this command to arm: InstallStatusPanel
 
@@ -116,7 +117,7 @@ function InstallStatusPanel()
     -- Send harmless command to trigger the prompt to update in the game
     SendImmediate ("time")
 
-end --end InstallStatusPanel
+end --- end InstallStatusPanel ---
 
 
 function OnPluginCommandEntered(sText)
@@ -127,7 +128,7 @@ function OnPluginCommandEntered(sText)
     return "\t"
 end
 
---[[The UDP parsing mechanism already handles states that are passed with invalid values (such as max = 0), so no need to turn mana on and off]]--
+--The UDP parsing mechanism already handles states that are passed with invalid values (such as max = 0), so no need to turn mana on and off
 
 function StatusPanel(thename, theoutput, wildcards)
 
