@@ -42,7 +42,7 @@
   <trigger
    enabled="y"
    keep_evaluating="y"
-   match="^PROMPT_([^_]+)_([^_]+)_LINE3$"
+   match="^PROMPT_([^_]+)_([^_]+)_([^_]+)_LINE3$"
    name="StatusPanelTriggerGag3"
    omit_from_log="y"
    omit_from_output="y"
