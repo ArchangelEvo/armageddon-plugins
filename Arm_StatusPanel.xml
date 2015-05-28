@@ -122,6 +122,8 @@ end --- end InstallStatusPanel ---
 
 function OnPluginCommandEntered(sText)
     if sText == "InstallStatusPanel" then InstallStatusPanel()
+    elseif sText == "ManaOff" then ManaOff()
+    elseif sText == "ManaOn" then ManaOn()
     else return sText
     end
     -- the function hasn't already returned so a match occurred. remove it from the command line.
