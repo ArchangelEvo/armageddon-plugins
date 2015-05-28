@@ -55,7 +55,7 @@
    enabled="y"
    lines_to_match="3"
    keep_evaluating="y"
-   match="^PROMPT_([^_]+)_([^_]+)_([^_]+)_riding: ([^_]+)_([^_]+)_LINEONE\nPROMPT_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_LINETWO\nPROMPT_([^_]+)_([^_]+)_LINE3$"
+   match="^PROMPT_([^_]+)_([^_]+)_([^_]+)_riding: ([^_]+)_([^_]+)_LINEONE\nPROMPT_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_([^_]+)_LINETWO\nPROMPT_([^_]+)_([^_]+)_([^_]+)_LINE3$"
    multi_line="y"
    name="StatusPanelTrigger"
    regexp="y"
@@ -185,7 +185,7 @@ CurrentPosition = wildcards [17]--used by default.
 local DisplayMana
 DisplayMana = wildcards [18]-- string used to toggle mana display
 local CurrentVerbosePosition
-DisplayMana = wildcards [18]-- string used to get position info when fighting
+CurrentVerbosePosition = wildcards [19]-- string used to get position info when fighting
 
 --Send the status info to the UDP listener (indirect - does nothing if listener is not activated/enabled)
 UdpSend ("127.0.0.1", 11000, CurrentHealth .. "/" .. CurrentHealthMax .. "_*hp_" .. CurrentStamina .. "/" .. CurrentStaminaMax .. "_*mv_" .. CurrentStun .. "/" .. CurrentStunMax .. "_*st_" .. CurrentMana .. "/" .. CurrentManaMax .. "_*mn_" .. CurrentArmed .. "_*arm_" .. CurrentSpeed .. "_*spd_" .. CurrentPosition .. "_*pos_" .. CurrentRiding .. "_*rid_" .. CurrentEncumbrance .. "_*enc_" .. DisplayMana .. "_*disman_" .. CurrentVerbosePosition .. "_*verpos_" .. CurrentTime .. "_*time")
